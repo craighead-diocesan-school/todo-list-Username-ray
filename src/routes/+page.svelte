@@ -9,6 +9,13 @@
 
     tasks = [...oldTasks, newTask]
   }
+
+  function removeTask(index) {
+    const firstPart = tasks.slice(0, index)
+    const secondPart = tasks.slice(index + 1)
+
+    tasks = [...firstPart, ...secondPart]
+  }
 </script>
 
 <Header />
@@ -23,6 +30,11 @@
   {#each tasks as task, index}
     <div class="task">
       <input bind:value={tasks[index]} />
+      <button
+        on:click={() => {
+          removeTask(index)
+        }}>🗑</button
+      >
     </div>
   {/each}
 </main>
