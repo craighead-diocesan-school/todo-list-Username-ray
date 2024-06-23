@@ -21,6 +21,13 @@
     const tasksAsJSON = JSON.stringify(tasks)
     localStorage.todos = tasksAsJSON
   }
+
+  function loadTasks() {
+    const tasksAsJSON = localStorage.todos
+    const tasksAsArray = JSON.parse(tasksAsJSON)
+
+    tasks = tasksAsArray
+  }
 </script>
 
 <Header />
@@ -32,6 +39,7 @@
 
   <button on:click={addTask}>📝 Add</button>
   <button on:click={saveTasks}>💾 Save</button>
+  <button on:click={loadTasks}>📡 Load</button>
 
   {#each tasks as task, index}
     <div class="task">
