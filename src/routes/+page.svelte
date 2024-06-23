@@ -16,6 +16,11 @@
 
     tasks = [...firstPart, ...secondPart]
   }
+
+  function saveTasks() {
+    const tasksAsJSON = JSON.stringify(tasks)
+    localStorage.todos = tasksAsJSON
+  }
 </script>
 
 <Header />
@@ -26,6 +31,7 @@
   <p>Welcome to coding with SvelteKit, a modern JavaScript framework that makes it easy to code great apps.</p>
 
   <button on:click={addTask}>📝 Add</button>
+  <button on:click={saveTasks}>💾 Save</button>
 
   {#each tasks as task, index}
     <div class="task">
