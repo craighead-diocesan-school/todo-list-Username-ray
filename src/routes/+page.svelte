@@ -23,7 +23,7 @@
   }
   function loadTasks() {
     let text
-    if (confirm("Are you sure?") == true) {
+    if (confirm("Are you sure?")) {
       const tasksAsJSON = localStorage.todos
       const tasksAsArray = JSON.parse(tasksAsJSON)
 
