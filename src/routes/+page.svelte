@@ -21,12 +21,16 @@
     const tasksAsJSON = JSON.stringify(tasks)
     localStorage.todos = tasksAsJSON
   }
-
   function loadTasks() {
-    const tasksAsJSON = localStorage.todos
-    const tasksAsArray = JSON.parse(tasksAsJSON)
+    let text
+    if (confirm("Are you sure?") == true) {
+      const tasksAsJSON = localStorage.todos
+      const tasksAsArray = JSON.parse(tasksAsJSON)
 
-    tasks = tasksAsArray
+      tasks = tasksAsArray
+    } else {
+      text = "Canceled."
+    }
   }
 </script>
 
